@@ -1,0 +1,163 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.dropdown-menu .dropdown-item{
+    cursor: pointer;
+}
+
+#nav_form{
+    position: relative;
+}
+.nav_videos{
+    width: 100%;
+
+    padding: 7px;
+    
+    position: absolute;
+        top: 45px;
+
+    background-color: #343a40;
+    z-index: 20;
+    text-align: center;
+}
+.nav_videos a{
+    color: #fff
+}
+
+.container, .lista_filmes, .lista_filmes *, .lista_series, .lista_series *{
+    /* border: 1px solid red; */
+}
+.container{
+    padding: 0;
+    margin: 0 auto;
+}
+.lista_filmes, .lista_series{
+    display: flex !important;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+}
+#lista_filmes{
+    background-color: #1c1f22 ;
+}
+#lista_series{
+    background-color: rgba(255, 255, 255, 0.3);
+}
+.coluna_filmes, .coluna_series{
+    width: 46%;
+    height: 290px;
+
+    margin: 3% 0;
+
+    display: flex;
+    
+    background-size: cover !important;
+    background-position: top !important;
+    color: #fff;
+}
+.coluna_filmes:hover, .coluna_series:hover{
+    transition: 1s;
+    transform: scale(1.1, 1.1);
+    text-decoration: none;
+}
+.coluna_filmes:hover .avaliacao, .coluna_series:hover .avaliacao{
+    color: yellow;
+}
+.coluna_filmes:hover .titulo, .coluna_series:hover .titulo{
+    display: block !important;
+
+    color: #fff;
+    text-decoration: none;
+}
+.coluna_filmes .avaliacao i, .coluna_series .avaliacao i{
+    font-size: 30px;
+}
+.coluna_filmes .avaliacao span, .coluna_series .avaliacao span{
+    width: 32px;
+    height: 34px;
+
+    position: absolute;
+
+    color: #000;
+    text-align: center;
+    line-height: 32px;
+}
+.coluna_filmes .titulo, .coluna_series .titulo{
+    width: 100%;
+
+    margin-left: -34px;
+    margin-bottom: 0;
+
+    align-self: flex-end;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+@media only screen and (min-width: 426px){
+    .coluna_filmes, .coluna_series{
+        width: 195px;
+    }
+}
+@media only screen and (min-width: 769px){
+    .coluna_filmes, .coluna_series{
+        margin: 1%;
+    }
+}
+
+
+
+
+#assistir .attr_esquerda{
+    padding-bottom: 0 !important;
+}
+#assistir .attr_esquerda p:first-child{
+    font-size: 2rem;
+}
+#assistir .column-md:last-child{
+    width: 100vw;
+}
+#assistir .column-md:last-child p{
+    margin: 0;
+
+    text-align: right;
+}
+#assistir .filmes_avaliacao, #assistir .series_avaliacao{
+    padding: 2px;
+
+    display: flex;
+        justify-content: center;
+
+    background-color: rgba(255, 255, 255, 0.3);
+}
+#assistir .avaliacao_ruim, #assistir .avaliacao_boa{
+    padding: 0 0.8rem;
+
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    font-size: 1.7rem;
+}
+
+@media only screen and (min-width: 769px){
+    #assistir .row{
+        display: flex;
+    }
+    #assistir .column-md{
+        width: 49vw !important;
+    }
+    #assistir .avaliacao_ruim, #assistir .avaliacao_boa{
+        font-size: 2rem;
+    }
+    #assistir .column-md:last-child{
+        margin: 15px 0;
+
+        display: flex;
+            flex-direction: column-reverse;
+            /* align-items: center; */
+    }
+    #assistir .avaliacao, #assistir .msg_avaliado{
+        font-size: 1.5rem;
+    }
+}

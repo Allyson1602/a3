@@ -1,0 +1,34 @@
+<?php
+    $tipo = $_GET['tipo'];
+
+    if(isset($this->view->$tipo['diretor'])){
+        $alteracao = $this->view->$tipo['diretor'];
+    }else{
+        $alteracao = "temporadas: ".$this->view->$tipo['temporadas'];
+    }
+?>
+<div class="container-fluid" id="assistir">
+    <div class="embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item" src="<?= $this->view->$tipo['trailer'] ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="row text-light">
+        <div class="column-md">
+            <div class="attr_esquerda p-3">
+                <p class="text-center"><?= $this->view->$tipo['titulo'] ?></p>
+                <p class="text-justify"><?= $this->view->$tipo['descricao'] ?></p>
+            </div>
+        </div>
+        <div class="column-md">
+            <?php
+                print("<div class='".$_GET['tipo']."_avaliacao'>
+                    <button class='avaliacao_ruim' id='".$this->view->$tipo['id']."'><i class='fas fa-angle-down'></i></button>
+                    <p class='avaliacao'>".$this->view->$tipo['avaliacao']."</p>
+                    <button class='avaliacao_boa' id='".$this->view->$tipo['id']."'><i class='fas fa-angle-up'></i></button>
+                    <p class='msg_avaliado' style='display: none;'>Muito obrigado!</p>
+                </div>");
+            ?>
+            <p><?= $alteracao ?></p>
+            <p><?= $this->view->$tipo['lancamento'] ?></p>
+        </div>
+    </div>
+</div>

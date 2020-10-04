@@ -1,0 +1,86 @@
+<div id="container">
+        <header>
+            <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+                <a class="navbar-brand" href="/">A3</a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            filmes
+                            </a>
+                            <div class="dropdown-menu" id="filmes" aria-labelledby="navbarDropdown">
+                                <button class="dropdown-item" id="acao">ação</button>
+                                <button class="dropdown-item" id="aventura">aventura</button>
+                                <button class="dropdown-item" id="romance">romance</button>
+                                <button class="dropdown-item" id="comedia">comédia</button>
+                                <button class="dropdown-item" id="terror">terror</button>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            séries
+                            </a>
+                            <div class="dropdown-menu" id="series" aria-labelledby="navbarDropdown">
+                                <button class="dropdown-item" id="acao">ação</button>
+                                <button class="dropdown-item" id="aventura">aventura</button>
+                                <button class="dropdown-item" id="romance">romance</button>
+                                <button class="dropdown-item" id="comedia">comédia</button>
+                                <button class="dropdown-item" id="terror">terror</button>
+                            </div>
+                        </li>
+                    </ul>
+                    <form class="form-inline my-2 my-lg-0" id="nav_form">
+                        <input class="form-control mr-sm-2" id="inp_nav_video" type="search" placeholder="filme ou série" aria-label="Search">
+                        <!-- <button class="btn btn-outline-success my-2 my-sm-0" id="btn_nav_pesquisar" type="submit">encontrar</button> -->
+                        <div class="nav_videos"></div>
+                    </form>
+                </div>
+            </nav>
+        </header>
+    <div class="container-fluid">
+        <div class="lista_filmes" id="lista_filmes">
+                <!-- <h1>Filmes</h1> -->
+                <?php
+                    for($i=0;$i<count($this->view->filmes);$i++){
+                ?>
+                    <a href="assistir?tipo=filmes&id=<?=$this->view->filmes[$i]['id'] ?>" id="coluna_filmes" class="video_<?=$this->view->filmes[$i]['id'] ?> coluna_filmes" style="background-image: url(img/filmes/<?= $this->view->filmes[$i]['poster'] ?>);" >
+                        <?php 
+                            print("<p class='avaliacao'>
+                                <span>".$this->view->filmes[$i]['avaliacao']."</span>
+                                <i class='fas fa-star'></i>
+                            </p>");
+                            print("<p class='titulo' style='display: none'>".$this->view->filmes[$i]['titulo']."</p>");
+                        ?>
+                    </a>
+                <?php
+                    }
+                ?>
+            <!-- </div> -->
+        </div>
+        <div class="lista_series" id="lista_series">
+            <!-- <div class="col-sm" id="coluna_series">
+                <h1>Séries</h1> -->
+                <?php
+                    for($i=0;$i<count($this->view->series);$i++){
+                ?>
+                    <a href="assistir?tipo=series&id=<?= $this->view->series[$i]['id']?>" id="coluna_series" class="video_<?=$this->view->series[$i]['id'] ?> coluna_series" style="background-image: url(img/series/<?= $this->view->series[$i]['poster'] ?>);">
+                        <?php
+                            print("<p class='avaliacao'>
+                            <span>".$this->view->series[$i]['avaliacao']."</span>
+                                <i class='fas fa-star'></i>
+                            </p>");
+                            print("<p class='titulo' style='display: none'>".$this->view->series[$i]['titulo']."</p>");
+                        ?>
+                    </a>
+                <?php
+                    }
+                ?>
+            <!-- </div> -->
+        </div>
+    </div>
+</div>
